@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint Markdown files
+        uses: avto-dev/markdown-lint@v1
+        with:
+          args: './skills/**/*.md'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  link-check:
+    name: Link Checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --verbose --no-progress './skills/**/*.md' './README.md'
+          fail: false
+
+  validate-structure:
+    name: Validate Skill Structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required sections exist in all skill files
+        run: |
+          REQUIRED_SECTIONS=("When to Use" "Prerequisites" "Tools" "Step-by-Step" "Templates" "Common Pitfalls" "Legal Considerations" "Further Reading")
+          FAILED=0
+
+          for file in $(find skills -name "*.md" -type f); do
+            echo "Checking: $file"
+            for section in "${REQUIRED_SECTIONS[@]}"; do
+              if ! grep -qi "## .*${section}" "$file"; then
+                echo "  MISSING: ${section}"
+                FAILED=1
+              fi
+            done
+
+            # Check minimum line count (150 lines)
+            LINE_COUNT=$(wc -l < "$file")
+            if [ "$LINE_COUNT" -lt 150 ]; then
+              echo "  TOO SHORT: ${LINE_COUNT} lines (minimum 150)"
+              FAILED=1
+            else
+              echo "  OK: ${LINE_COUNT} lines"
+            fi
+          done
+
+          if [ "$FAILED" -eq 1 ]; then
+            echo "::error::Some skill files are missing required sections or are too short."
+            exit 1
+          fi
+          echo "All skill files pass validation."
+
+  count-skills:
+    name: Count Skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify skill count
+        run: |
+          SKILL_COUNT=$(find skills -name "*.md" -type f | wc -l)
+          echo "Found ${SKILL_COUNT} skill files"
+          if [ "$SKILL_COUNT" -lt 12 ]; then
+            echo "::error::Expected at least 12 skill files, found ${SKILL_COUNT}"
+            exit 1
+          fi
+          echo "Skill count check passed."
