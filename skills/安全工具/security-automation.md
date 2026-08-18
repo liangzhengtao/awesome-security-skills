@@ -629,3 +629,45 @@ clean:
 - [Nuclei Template Writing Guide](https://nuclei.projectdiscovery.io/templating-guide/)
 - [Python Security Tools (Awesome List)](https://github.com/guardicore/awesome-security-tools)
 - [SecLists (Wordlists)](https://github.com/danielmiessler/SecLists)
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 自动化重复性安全测试任务
+- 构建持续安全测试流水线
+- 为特定技术栈创建自定义漏洞扫描器
+- 自动化合规检查和配置审计
+- 构建事件响应自动化（检测、分类、遏制）
+- 编排多个安全工具为统一工作流
+- 为 Bug Bounty 或渗透测试自动化侦察
+- 创建安全仪表盘和报告自动化
+- 实施 DevSecOps 左移安全检查
+
+### 核心步骤
+
+1. **环境搭建**：创建专用目录结构（scripts/templates/reports/configs），配置 Python 虚拟环境，安装 Go 工具链（nuclei、httpx、subfinder、ffuf）。
+2. **自动化侦察流水线**：编写 Python 类串联子域名枚举（subfinder + crt.sh）、存活主机探测（httpx）、漏洞扫描（nuclei），一键执行完整侦察流程。
+3. **自动化 Web 漏洞扫描器**：编写自定义扫描器检查安全 Header 缺失、目录列表、信息泄露（服务器版本、错误页面堆栈跟踪）。
+4. **CI/CD 安全流水线**：在 GitHub Actions 中集成依赖扫描（Trivy）、SAST（Semgrep）、容器镜像扫描、密钥泄露检测（Gitleaks）、IaC 扫描（Checkov）。
+5. **合规自动化**：编写合规检查器验证 SSH 加固、防火墙配置等安全基线，输出通过/失败摘要。
+6. **报告生成自动化**：使用 Jinja2 模板从扫描结果 JSON 自动生成 Markdown 报告。
+
+### 模板说明
+
+- **项目结构模板**：标准目录布局——scripts/（自定义脚本）、templates/（Nuclei 模板、报告模板）、configs/（工具配置）、pipelines/（CI/CD 定义）。
+- **Makefile 模板**：封装常用操作——`make scan`（完整扫描）、`make report`（生成报告）、`make compliance`（合规检查）、`make clean`（清理报告）。
+- **CI/CD Pipeline 模板**：完整的 GitHub Actions 配置，包含依赖扫描、SAST、容器扫描、密钥检测和 IaC 扫描五个并行 Job。
+
+### 常见陷阱
+
+- **脚本中硬编码凭据** — 绝不要在脚本中嵌入 API Key、密码或 token，使用环境变量或密钥管理工具。
+- **缺少错误处理** — 安全工具会因各种原因失败（网络错误、速率限制、认证），必须实现 try/except 和重试逻辑。
+- **对目标发包过量** — 自动化工具可产生海量请求，应实施速率限制并遵守 `robots.txt`。
+- **不记录自动化运行日志** — 每次运行应产生包含时间戳、输入和输出的日志，用于审计追踪。
+- **忽略误报** — 自动化工具会产生误报，必须包含人工审查步骤或分类机制。
+- **脚本不做版本控制** — 自动化脚本应视同代码，纳入版本控制、代码审查和测试。
+- **脆弱的输出解析** — 不要用脆弱的字符串分割解析工具输出，优先使用 JSON 输出或结构化解析器。
+- **不处理认证** — 很多真实目标需要认证，脚本应支持 session token、Cookie 和 OAuth 流程。

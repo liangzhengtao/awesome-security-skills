@@ -296,3 +296,42 @@ Authorization: Bearer eyJ...[User A token]
 - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
 - [HackTricks Web](https://book.hacktricks.xyz/pentesting-web/)
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 对 Web 应用进行授权渗透测试
+- 验证安全控制措施的有效性
+- 应用上线前或重大更新后的安全评估
+- 红队演练中针对 Web 基础设施的测试
+- PCI-DSS Requirement 11.3 合规测试
+- 授权 Bug Bounty 项目的漏洞猎捕
+- 安全事件后评估攻击范围
+
+### 核心步骤
+
+1. **环境配置**：配置 Burp Suite 代理和浏览器 CA 证书，设置测试范围，手动浏览应用并记录所有端点和技术栈。
+2. **自动化扫描**：使用 Nuclei 模板扫描、Burp Suite 主动扫描、目录爆破（ffuf）、隐藏参数发现（Arjun）、CMS 专用扫描器（WPScan）。
+3. **手动注入测试**：SQL 注入（单引号、布尔逻辑、时间盲注、SQLMap）、XSS（反射/存储/DOM）、命令注入（Commix）、SSTI（`{{7*7}}`）、SSRF（内部地址、云元数据）。
+4. **认证与会话测试**：认证绕过、Session fixation、密码重置流程安全。
+5. **访问控制测试**：IDOR、权限提升（垂直/水平）、多步骤流程跳步。
+6. **客户端测试**：CORS 配置、Clickjacking、敏感数据暴露。
+7. **利用与影响验证**：为关键发现编写 PoC，验证漏洞链可组合性（如 XSS + CSRF = 账户接管）。
+
+### 模板说明
+
+- **渗透测试发现模板**：标准化格式，包含元数据（ID、CVSS、CWE、OWASP）、受影响资产、漏洞描述、PoC 请求/响应、影响分析、分阶段修复方案和参考链接。
+- **测试检查清单**：涵盖注入、认证、访问控制、客户端和信息泄露五大类测试项。
+
+### 常见陷阱
+
+- **仅依赖自动化扫描器** — 自动化工具大概只能发现 30-40% 的 Web 漏洞，手动测试必不可少。
+- **不测试认证区域** — 很多漏洞只在认证后出现，必须使用适当角色测试。
+- **只测试 GET 参数** — POST body、Cookie、Header 和 HTTP 方法同样是重要攻击面。
+- **造成服务中断** — 激进的 fuzzing 和利用可能导致服务崩溃，测试期间应监控目标状态。
+- **不捕获证据** — 发现漏洞时立即截图和记录，事后复现可能不可能。
+- **跳过业务逻辑测试** — 自动化工具无法发现价格篡改、购买竞态条件等逻辑缺陷。
+- **不测试错误处理** — 发送畸形输入常会暴露堆栈跟踪、调试端点和信息泄露。

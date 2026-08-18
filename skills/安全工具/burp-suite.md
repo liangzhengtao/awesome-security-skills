@@ -307,3 +307,42 @@ class BurpExtender(IBurpExtender, IHttpListener):
 - [HackTricks: Burp Suite](https://book.hacktricks.xyz/generic-methodologies-and-resources/external-recon-methodology/burp-suite)
 - [SANS: Burp Suite Tips and Tricks](https://www.sans.org/)
 - [Burp Suite Unleashed (PortSwigger Blog)](https://portswigger.net/blog)
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 搭建 Web 应用安全测试环境
+- 渗透测试中拦截和修改 HTTP/HTTPS 流量
+- 对 Web 目标自动化漏洞扫描
+- 对参数进行 fuzzing 以发现注入、XSS 和逻辑漏洞
+- 分析和攻击认证与会话机制
+- 开发自定义 Burp 扩展用于专项测试
+- 对新安全测试人员进行行业标准工具培训
+
+### 核心步骤
+
+1. **初始配置**：为每次测试创建新项目，配置上游代理和作用域，安装 CA 证书，加载常用扩展（Autorize、Logger++、Param Miner）。
+2. **代理与流量分析**：使用 Intercept 拦截并修改请求，通过 HTTP History 分析所有捕获流量，使用 Logger++ 进行高级过滤。
+3. **Repeater 手动测试**：将请求发送到 Repeater 反复修改并重发，测试 SQL 注入、XSS、IDOR 等，比较响应差异。
+4. **Intruder 自动化 Fuzzing**：选择攻击类型（Sniper/Battering Ram/Pitchfork/Cluster Bomb），执行目录爆破、凭据暴力破解和参数 fuzzing。
+5. **主动/被动扫描**：配置主动扫描审计检查项和认证登录，查看被动扫描发现（缺失 Header、Cookie 标志等）。
+6. **Autorize 授权测试**：配置低权限和高权限会话，自动重放请求验证授权绕过。
+7. **Collaborator 带外测试**：使用 Collaborator 域名检测盲注（盲 SQLi、盲 XSS、SSRF、XXE）。
+
+### 模板说明
+
+- **测试工作流清单**：分测试前（项目创建、范围配置、CA 证书、扩展加载）、测试中（应用映射、认证记录、扫描启动、Autorize 运行）、测试后（发现验证、证据收集、结果导出）三阶段。
+- **快捷键速查表**：常用操作快捷键——发送到 Repeater（Ctrl+Shift+R）、Intruder（Ctrl+Shift+I）、Decoder（Ctrl+Shift+D）等。
+
+### 常见陷阱
+
+- **未设置作用域** — 不设 scope 会捕获所有网站流量，包括范围外目标，务必先设 scope。
+- **信任自动扫描结果** — Burp 扫描器会产生误报，必须手动验证。
+- **对目标发包过量** — 默认扫描和 Intruder 设置可发送数千个请求，应控制请求速率。
+- **不保存项目** — 丢失的 Burp 会话无法恢复，应定期保存或启用自动保存。
+- **遗忘测试认证区域** — 配置 Application Login 设置以在扫描期间维持认证会话。
+- **忽略被动发现** — 被动扫描器发现的问题（缺失 Header、Cookie 标志）是容易修复的低垂果实。
+- **不使用扩展** — Burp 扩展能极大扩展能力，仅 Autorize 就能节省数小时的授权测试时间。

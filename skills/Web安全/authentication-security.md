@@ -238,3 +238,42 @@ done
 - [OWASP ASVS v4.0](https://owasp.org/www-project-application-security-verification-standard/)
 - [JWT Best Practices (RFC 8725)](https://datatracker.ietf.org/doc/html/rfc8725)
 - [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics)
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 为新应用设计认证流程
+- 审计现有登录、SSO 和 MFA 实现
+- 调查账户接管事件
+- 实施 OAuth 2.0 / OpenID Connect
+- 审查会话管理和 token 生命周期
+- 从遗留认证迁移到现代标准
+- 评估无密码认证方案（WebAuthn、FIDO2）
+- 准备合规审计（PCI-DSS Requirement 8、NIST 800-63B）
+
+### 核心步骤
+
+1. **认证流程映射**：记录所有认证机制（用户名密码、SSO、API Key、Session Cookie、无密码登录），使用拦截代理绘制完整登录流程。
+2. **密码安全评估**：验证使用 bcrypt/scrypt/Argon2id 哈希，测试用户名枚举、暴力破解防护、密码重置流程安全性。
+3. **会话管理**：检查 Session ID 随机性、Cookie 安全属性（Secure/HttpOnly/SameSite）、会话超时和登出失效机制。
+4. **Token 安全（JWT/OAuth 2.0）**：验证 JWT 算法不为 `none`，测试算法混淆攻击，检查 OAuth 2.0 的 `state` 参数和 redirect URI 验证。
+5. **多因素认证**：验证 MFA 是否强制启用，测试 MFA 绕过路径，检查 TOTP 实现和备用恢复码安全性。
+6. **授权测试**：测试垂直和水平权限提升，验证 IDOR，检查 API 授权一致性。
+
+### 模板说明
+
+- **认证评估报告模板**：包含认证机制清单、发现详情（JWT 算法混淆示例）、密码策略评估和 OWASP ASVS 合规映射。
+- **凭据强度测试脚本**：通过循环失败登录测试账户锁定机制。
+
+### 常见陷阱
+
+- **仅在客户端做授权** — 授权必须在服务端每个请求上执行，客户端检查仅供 UX。
+- **登出时未销毁会话** — 必须在服务端撤销 session/token，仅删除客户端 cookie 不够。
+- **重复使用密码重置 token** — 重置 token 必须一次性使用且用后失效。
+- **JWT 签名密钥过短** — HMAC 密钥至少 256 位，RSA 至少 2048 位。
+- **将 token 存储在 localStorage** — 易受 XSS 攻击，Web 应用应优先使用 HttpOnly Cookie。
+- **遗忘测试 API 认证** — 很多应用保护了 UI 但 API 端点未设防。
+- **忽略登录时序攻击** — 密码验证应使用常量时间比较，防止 oracle 攻击。

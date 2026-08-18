@@ -272,3 +272,41 @@ All exceptions require written approval from the Security Lead with a documented
 - [SPDX SBOM Standard](https://spdx.dev/)
 - [Endor Labs: State of Dependency Management](https://endorlabs.com/)
 - [Socket.dev: Supply Chain Security](https://socket.dev/)
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 在 CI/CD 中设置自动化依赖扫描
+- 调查影响项目使用的 CVE 漏洞
+- 发布前安全审计
+- 满足 SBOM（软件物料清单）要求
+- 评估新引入依赖的安全状况
+- 响应供应链攻击事件
+- 生成依赖许可和安全合规报告
+
+### 核心步骤
+
+1. **清单与 SBOM 生成**：使用 Syft/Trivy 生成 SBOM，列出所有直接和传递依赖，记录许可证信息。
+2. **漏洞扫描**：运行主力扫描器（Trivy、OSV-Scanner、npm audit 等），使用辅助扫描器交叉验证，直接查询 CVE 数据库处理模糊案例。
+3. **风险评估**：综合 CVSS 评分、可利用性、可达性、暴露面和数据敏感度进行评估，按实际风险而非单纯 CVSS 评分排优先级。
+4. **修复**：优先升级依赖版本；若无补丁，检查可达性后应用临时方案、fork 修复或替换依赖；修复后重跑扫描器验证。
+5. **自动化与策略**：配置 Dependabot 自动 PR，在 CI 中集成漏洞扫描，制定依赖策略（最大允许年龄、最低下载量、许可证白名单）。
+6. **供应链安全**：验证包完整性和发布者身份，检查 typosquatting，锁定依赖版本，在 PR 中审查 lock file 差异。
+
+### 模板说明
+
+- **依赖审计报告模板**：包含漏洞统计摘要、关键 CVE 详情（包名、CVSS、修复版本、可达性）和供应链评估。
+- **依赖策略模板**：定义新依赖审批标准（CVE 历史、维护活跃度、下载量、许可证）和更新计划。
+
+### 常见陷阱
+
+- **忽略传递依赖** — 直接依赖只是冰山一角，传递依赖中的漏洞同样危险。
+- **盲目运行 `npm audit fix --force`** — 主版本升级可能破坏 API，必须先查看 changelog 并跑测试。
+- **不提交 lock file** — 没有 lock file，依赖解析不确定且易受供应链攻击。
+- **仅在 CI 中扫描** — 开发者也应在提交前本地扫描，pre-commit hook 是理想选择。
+- **对所有 Critical CVE 一视同仁** — 不可达代码路径中的 Critical CVE 风险低于面向互联网端点的 High CVE。
+- **忽视不维护的依赖** — 两年无更新的库即使没有已知 CVE 也是风险。
+- **不验证包完整性** — Typosquatting 和 dependency confusion 攻击利用的就是对包名的信任。

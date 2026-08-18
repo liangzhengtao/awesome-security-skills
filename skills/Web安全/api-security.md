@@ -195,3 +195,39 @@ done
 - [API Security Best Practices (CISA)](https://www.cisa.gov/)
 - [Auth0 API Security Guide](https://auth0.com/docs/secure/tokens)
 - [PortSwigger API Security Academy](https://portswigger.net/web-security/api-testing)
+
+---
+
+## 中文版本
+
+### 使用场景
+
+- 设计新 API 时建立安全基线
+- 对现有 API 进行安全漏洞审计
+- 实施 API 认证与授权机制
+- 准备以 API 为核心的渗透测试
+- 将 API 安全集成到 CI/CD 流水线中
+- 响应 API 相关安全事件
+- 构建 API 安全治理体系
+
+### 核心步骤
+
+1. **API 发现与文档化**：收集 OpenAPI/Swagger 文档，通过流量分析重建端点，枚举 API 版本，使用 Kiterunner 发现未记录的路由。
+2. **认证与授权测试**：检查 JWT token 安全（算法、过期、`none` 攻击），验证 OAuth 2.0 流程（`state` 参数、redirect URI），测试 BOLA/BFLA。
+3. **输入验证与注入**：测试 SQL/NoSQL/命令注入，检查批量赋值，验证文件上传安全，测试 GraphQL 特定攻击（深度查询、批量查询）。
+4. **速率限制与资源滥用**：测试认证端点和高成本操作的速率限制，尝试绕过限制（IP 轮换、Header 操纵）。
+5. **数据暴露与错误处理**：验证响应不泄露内部数据，检查 CORS 配置，测试错误处理。
+
+### 模板说明
+
+- **API 安全评估报告模板**：包含范围、端点清单、发现详情（BOLA 示例）和修复建议摘要。
+- **速率限制测试脚本**：通过循环请求触发 429 响应来验证速率限制是否生效。
+
+### 常见陷阱
+
+- **仅依赖客户端验证** — 必须在服务端进行所有输入验证，客户端检查可被轻易绕过。
+- **遗忘旧版 API** — 旧的 `/v1/` 端点可能缺少新版本的安全控制。
+- **忽视 GraphQL 攻击面** — GraphQL introspection 可暴露整个 schema，生产环境应禁用。
+- **过度依赖 API Key** — API Key 是标识而非认证手段，应配合正式认证机制使用。
+- **未用不同角色测试** — 应至少使用管理员、普通用户和未认证三种视角测试端点。
+- **错误信息未标准化** — 错误响应应返回通用消息，详细错误信息会帮助攻击者。
