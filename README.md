@@ -1,11 +1,10 @@
-<!-- Banner -->
+[中文版](README.zh.md)
+
 <div align="center">
 
 # 🛡️ Awesome Security Skills
 
 **Think like a hacker, defend like a pro.**
-
-**像黑客一样思考，像专家一样防御。**
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -14,10 +13,6 @@
 [![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen.svg)](CHANGELOG.md)
 
 **12 AI skills for cybersecurity** — a curated collection of structured, actionable skill files for AI-assisted security testing, code auditing, and defense.
-
-**12 个网络安全 AI 技能** — 一套结构化、可操作的安全技能文件集合，涵盖 AI 辅助安全测试、代码审计和防御。
-
-[English](#-overview) · [中文](#-概述)
 
 </div>
 
@@ -35,98 +30,96 @@ These skills are designed for:
 
 > ⚠️ **Legal Disclaimer**: These skills are provided for **authorized security testing and educational purposes only**. Always obtain explicit written permission before testing any system you do not own. Unauthorized access to computer systems is illegal in most jurisdictions. The authors assume no liability for misuse. See [SECURITY.md](SECURITY.md) for responsible disclosure guidelines.
 
-> ⚠️ **法律声明**: 这些技能仅用于**授权的安全测试和教育目的**。在测试任何不属于您的系统之前，请务必获得明确的书面许可。未经授权访问计算机系统在大多数司法管辖区是非法的。作者对滥用不承担任何责任。有关负责任的披露指南，请参阅 [SECURITY.md](SECURITY.md)。
-
 ---
 
-## 📋 Skills Overview / 技能概览
+## 📋 Skills Overview
 
 <table>
 <thead>
 <tr>
-<th>Category / 类别</th>
-<th>Skill / 技能</th>
-<th>Description / 描述</th>
+<th>Category</th>
+<th>Skill</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td rowspan="3"><strong>🌐 Web 安全</strong><br>Web Security</td>
+<td rowspan="3"><strong>🌐 Web Security</strong></td>
 <td><a href="skills/Web安全/owasp-top10.md">OWASP Top 10</a></td>
-<td>Systematically assess OWASP Top 10 vulnerabilities<br>系统化评估 OWASP Top 10 漏洞</td>
+<td>Systematically assess OWASP Top 10 vulnerabilities</td>
 </tr>
 <tr>
 <td><a href="skills/Web安全/api-security.md">API Security</a></td>
-<td>REST, GraphQL, and gRPC API security proven patterns<br>REST、GraphQL 和 gRPC API 安全最佳实践</td>
+<td>REST, GraphQL, and gRPC API security proven patterns</td>
 </tr>
 <tr>
 <td><a href="skills/Web安全/authentication-security.md">Authentication Security</a></td>
-<td>Authentication and authorization mechanism assessment<br>认证和授权机制评估</td>
+<td>Authentication and authorization mechanism assessment</td>
 </tr>
 <tr>
-<td rowspan="3"><strong>🔍 代码审计</strong><br>Code Audit</td>
+<td rowspan="3"><strong>🔍 Code Audit</strong></td>
 <td><a href="skills/代码审计/static-analysis.md">Static Analysis</a></td>
-<td>Automated static code analysis tools and integration<br>自动化静态代码分析工具与集成</td>
+<td>Automated static code analysis tools and integration</td>
 </tr>
 <tr>
 <td><a href="skills/代码审计/dependency-audit.md">Dependency Audit</a></td>
-<td>Third-party dependency vulnerability scanning<br>第三方依赖漏洞扫描</td>
+<td>Third-party dependency vulnerability scanning</td>
 </tr>
 <tr>
 <td><a href="skills/代码审计/secure-code-review.md">Secure Code Review</a></td>
-<td>Manual secure code review checklist<br>手动安全代码审查清单</td>
+<td>Manual secure code review checklist</td>
 </tr>
 <tr>
-<td rowspan="3"><strong>🎯 渗透测试</strong><br>Penetration Testing</td>
+<td rowspan="3"><strong>🎯 Penetration Testing</strong></td>
 <td><a href="skills/渗透测试/reconnaissance.md">Reconnaissance</a></td>
-<td>OSINT and information gathering techniques<br>开源情报和信息收集技术</td>
+<td>OSINT and information gathering techniques</td>
 </tr>
 <tr>
 <td><a href="skills/渗透测试/web-app-testing.md">Web App Testing</a></td>
-<td>Web application penetration testing methodology<br>Web 应用渗透测试方法论</td>
+<td>Web application penetration testing methodology</td>
 </tr>
 <tr>
 <td><a href="skills/渗透测试/report-writing.md">Report Writing</a></td>
-<td>Professional penetration test report writing<br>专业渗透测试报告撰写</td>
+<td>Professional penetration test report writing</td>
 </tr>
 <tr>
-<td rowspan="3"><strong>🔧 安全工具</strong><br>Security Tools</td>
+<td rowspan="3"><strong>🔧 Security Tools</strong></td>
 <td><a href="skills/安全工具/burp-suite.md">Burp Suite</a></td>
-<td>Master Burp Suite for web security testing<br>精通 Burp Suite Web 安全测试</td>
+<td>Master Burp Suite for web security testing</td>
 </tr>
 <tr>
 <td><a href="skills/安全工具/nmap-scanning.md">Nmap Scanning</a></td>
-<td>Network discovery and port scanning with Nmap<br>使用 Nmap 进行网络发现和端口扫描</td>
+<td>Network discovery and port scanning with Nmap</td>
 </tr>
 <tr>
 <td><a href="skills/安全工具/security-automation.md">Security Automation</a></td>
-<td>Automated security testing pipelines and scripts<br>自动化安全测试流水线和脚本</td>
+<td>Automated security testing pipelines and scripts</td>
 </tr>
 </tbody>
 </table>
 
 ---
 
-## 🚀 Quick Start / 快速开始
+## 🚀 Quick Start
 
-### Using with AI Assistants / 与 AI 助手配合使用
+### Using with AI Assistants
 
-1. **Clone the repository / 克隆仓库**:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/your-org/awesome-security-skills.git
    ```
 
-2. **Feed a skill to your AI assistant / 将技能文件提供给 AI 助手**:
+2. **Feed a skill to your AI assistant**:
    - Copy the relevant skill file content into your AI conversation
    - Or point your AI tool to the skill file path
    - Example: "Read `skills/Web安全/owasp-top10.md` and follow its procedure to assess my application"
 
-3. **Follow the step-by-step procedure / 按照步骤执行**:
+3. **Follow the step-by-step procedure**:
    - Each skill contains a complete workflow
    - Use the templates for consistent output
    - Review the pitfalls section before starting
 
-### Integration with AI Tools / 与 AI 工具集成
+### Integration with AI Tools
 
 | AI Tool | Integration Method |
 |---------|-------------------|
@@ -138,16 +131,16 @@ These skills are designed for:
 
 ---
 
-## 📁 Project Structure / 项目结构
+## 📁 Project Structure
 
 ```
 awesome-security-skills/
-├── README.md                           # This file / 本文件
+├── README.md                           # This file
 ├── LICENSE                             # MIT License
-├── CONTRIBUTING.md                     # Contribution guide / 贡献指南
-├── SECURITY.md                         # Security policy / 安全政策
-├── CODE_OF_CONDUCT.md                  # Code of conduct / 行为准则
-├── CHANGELOG.md                        # Version history / 版本历史
+├── CONTRIBUTING.md                     # Contribution guide
+├── SECURITY.md                         # Security policy
+├── CODE_OF_CONDUCT.md                  # Code of conduct
+├── CHANGELOG.md                        # Version history
 ├── .gitignore                          # Git ignore rules
 ├── .github/
 │   ├── workflows/
@@ -178,7 +171,7 @@ awesome-security-skills/
 
 ---
 
-## 🎓 How Skills Are Structured / 技能结构说明
+## 🎓 How Skills Are Structured
 
 Each skill file follows a consistent structure to maximize usability:
 
@@ -195,22 +188,20 @@ Each skill file follows a consistent structure to maximize usability:
 
 ---
 
-## 🤝 Contributing / 贡献
+## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-欢迎贡献！请参阅 [CONTRIBUTING.md](CONTRIBUTING.md) 了解指南。
-
-**Ways to contribute / 贡献方式**:
-- 🐛 Report errors or outdated information / 报告错误或过时信息
-- ✨ Propose new skills / 提议新技能
-- 📝 Improve existing skills / 改进现有技能
-- 🌍 Translate skills to other languages / 翻译技能到其他语言
-- 🧪 Add test cases and examples / 添加测试用例和示例
+**Ways to contribute**:
+- 🐛 Report errors or outdated information
+- ✨ Propose new skills
+- 📝 Improve existing skills
+- 🌍 Translate skills to other languages
+- 🧪 Add test cases and examples
 
 ---
 
-## 🔗 See Also / 相关项目
+## 🔗 See Also
 
 Other awesome projects in the ecosystem:
 
@@ -218,7 +209,7 @@ Other awesome projects in the ecosystem:
 - **[awesome-web-security](https://github.com/qazbnm456/awesome-web-security)** — A list of web security materials and resources.
 - **[awesome-pentest](https://github.com/enaqx/awesome-pentest)** — A collection of awesome penetration testing resources, tools and other shiny things.
 - **[awesome-hacking](https://github.com/carpedm20/awesome-hacking)** — A curated list of delightful Hacking resources.
-- **[awesome-malware-analysis](https.com/rshipp/awesome-malware-analysis)** — A curated list of awesome malware analysis tools and resources.
+- **[awesome-malware-analysis](https://rshipp/awesome-malware-analysis)** — A curated list of awesome malware analysis tools and resources.
 - **[awesome-threat-intelligence](https://github.com/hslatman/awesome-threat-intelligence)** — A curated list of Awesome Threat Intelligence resources.
 - **[awesome-incident-response](https://github.com/meirwah/awesome-incident-response)** — A curated list of tools for incident response.
 - **[awesome-reversing](https://github.com/wtsxDev/reversing)** — A curated list of awesome reversing resources.
@@ -231,23 +222,17 @@ Other awesome projects in the ecosystem:
 
 ---
 
-## 📜 License / 许可证
+## 📜 License
 
 This project is licensed under the [MIT License](LICENSE).
 
-本项目采用 [MIT 许可证](LICENSE)。
-
 ---
 
-## ⚖️ Legal Disclaimer / 法律免责声明
+## ⚖️ Legal Disclaimer
 
 **The tools, techniques, and skills provided in this repository are for authorized security testing and educational purposes only.** Always obtain explicit written permission from the system owner before conducting any security assessment. Unauthorized access to computer systems is a criminal offense in most jurisdictions, including under the Computer Fraud and Abuse Act (CFAA) in the United States, the Computer Misuse Act in the United Kingdom, and similar laws worldwide.
 
-**本仓库提供的工具、技术和技能仅用于授权的安全测试和教育目的。** 在进行任何安全评估之前，请务必获得系统所有者的明确书面许可。未经授权访问计算机系统在大多数司法管辖区属于刑事犯罪，包括美国的《计算机欺诈和滥用法》(CFAA)、英国的《计算机滥用法》以及全球类似的法律。
-
 The maintainers and contributors of this project assume **no liability** and are **not responsible** for any misuse or damage caused by the use of information contained herein. Users are solely responsible for ensuring they comply with all applicable laws and regulations.
-
-本项目的维护者和贡献者**不承担任何责任**，也**不对**因使用本文所含信息而造成的任何滥用或损害负责。用户完全负责确保遵守所有适用的法律法规。
 
 ---
 
@@ -255,8 +240,6 @@ The maintainers and contributors of this project assume **no liability** and are
 
 **Made with ❤️ by the security community**
 
-**由安全社区用 ❤️ 制作**
-
-[⬆ Back to Top / 返回顶部](#-awesome-security-skills)
+[⬆ Back to Top](#-awesome-security-skills)
 
 </div>
