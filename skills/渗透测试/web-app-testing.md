@@ -56,7 +56,7 @@
 
 ### Phase 2: Automated Scanning
 
-1. **Run Nuclei with comprehensive templates**:
+1. **Run Nuclei with complete templates**:
    ```bash
    nuclei -u https://target.com -t cves/ -t vulnerabilities/ -t misconfigurations/ \
      -severity critical,high,medium -o nuclei_results.txt

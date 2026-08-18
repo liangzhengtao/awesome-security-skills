@@ -1,4 +1,4 @@
-# API Security Best Practices Skill
+# API Security Proven Patterns Skill
 
 > Secure REST, GraphQL, and gRPC APIs against common attack vectors with systematic assessment and hardening.
 
@@ -192,7 +192,7 @@ done
 
 - [OWASP API Security Top 10](https://owasp.org/API-Security/)
 - [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
-- [API Security Best Practices (CISA)](https://www.cisa.gov/)
+- [API Security Proven Patterns (CISA)](https://www.cisa.gov/)
 - [Auth0 API Security Guide](https://auth0.com/docs/secure/tokens)
 - [PortSwigger API Security Academy](https://portswigger.net/web-security/api-testing)
 

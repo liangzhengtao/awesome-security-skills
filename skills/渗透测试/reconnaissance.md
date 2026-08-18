@@ -296,7 +296,7 @@ Total: [N] subdomains, [M] live
 - [OWASP Testing Guide: Information Gathering](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)
 - [PTES: Intelligence Gathering](http://www.pentest-standard.org/index.php/Intelligence_Gathering)
 - [NIST SP 800-115: Technical Guide to Information Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
-- [SANS: Reconnaissance Best Practices](https://www.sans.org/)
+- [SANS: Reconnaissance Proven Patterns](https://www.sans.org/)
 - [OSINT Framework](https://osintframework.com/)
 - [Hacking the Cloud: OSINT](https://hackingthe.cloud/)
 

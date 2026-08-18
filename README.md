@@ -57,7 +57,7 @@ These skills are designed for:
 </tr>
 <tr>
 <td><a href="skills/Web安全/api-security.md">API Security</a></td>
-<td>REST, GraphQL, and gRPC API security best practices<br>REST、GraphQL 和 gRPC API 安全最佳实践</td>
+<td>REST, GraphQL, and gRPC API security proven patterns<br>REST、GraphQL 和 gRPC API 安全最佳实践</td>
 </tr>
 <tr>
 <td><a href="skills/Web安全/authentication-security.md">Authentication Security</a></td>
@@ -225,7 +225,7 @@ Other awesome projects in the ecosystem:
 - **[awesome-static-analysis](https://github.com/mre/awesome-static-analysis)** — A curated list of static analysis tools, linters and code quality checkers.
 - **[awesome-cyber-skills](https://github.com/Dev115/awesome-cyber-skills)** — A curated list of hacking environments where you can train your cyber skills.
 - **[awesome-ctf](https://github.com/apsdehal/awesome-ctf)** — A curated list of CTF frameworks, libraries, resources and software.
-- **[awesome-bugbounty](https://github.com/djadmin/awesome-bugbounty)** — A comprehensive list of bug bounty programs and writeups.
+- **[awesome-bugbounty](https://github.com/djadmin/awesome-bugbounty)** — A complete list of bug bounty programs and writeups.
 - **[awesome-osint](https://github.com/jivoi/awesome-osint)** — A curated list of amazingly awesome OSINT tools.
 - **[awesome-devsecops](https://github.com/TaptuIT/awesome-devsecops)** — A curated list of awesome DevSecOps tools, resources, and references.
 

@@ -1,6 +1,6 @@
 # Static Code Analysis Skill
 
-> Leverage automated static analysis tools to detect security vulnerabilities, code quality issues, and compliance violations before code reaches production.
+> Use automated static analysis tools to detect security vulnerabilities, code quality issues, and compliance violations before code reaches production.
 
 ## When to Use
 
@@ -26,7 +26,7 @@
 |------|-----------|---------|---------|
 | Semgrep | 30+ | Pattern-based SAST with custom rules | LGPL |
 | CodeQL | 10+ | Deep semantic analysis with query language | GitHub (free for open source) |
-| SonarQube | 30+ | Comprehensive code quality and security | LGPL / Commercial |
+| SonarQube | 30+ | Complete code quality and security | LGPL / Commercial |
 | Bandit | Python | Python-specific security linter | Apache-2.0 |
 | ESLint + plugins | JavaScript/TypeScript | Linting with security rules | MIT |
 | SpotBugs + FindSecBugs | Java | Bytecode-level security analysis | LGPL |

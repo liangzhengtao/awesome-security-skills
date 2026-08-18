@@ -236,7 +236,7 @@ done
 - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
 - [NIST SP 800-63B: Digital Identity Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html)
 - [OWASP ASVS v4.0](https://owasp.org/www-project-application-security-verification-standard/)
-- [JWT Best Practices (RFC 8725)](https://datatracker.ietf.org/doc/html/rfc8725)
+- [JWT Proven Patterns (RFC 8725)](https://datatracker.ietf.org/doc/html/rfc8725)
 - [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics)
 
 ---

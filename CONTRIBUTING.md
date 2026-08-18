@@ -78,7 +78,7 @@ New skill files must follow the established structure:
 
 - File names: `kebab-case.md` (e.g., `api-security.md`)
 - Directory names: Use the original language name (e.g., `Web安全`, `代码审计`)
-- Skill titles: Use the full descriptive name (e.g., "API Security Best Practices")
+- Skill titles: Use the full descriptive name (e.g., "API Security Proven Patterns")
 
 ## Code of Conduct
 

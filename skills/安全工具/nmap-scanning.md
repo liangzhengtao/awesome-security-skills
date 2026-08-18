@@ -77,7 +77,7 @@ nmap -sV -T4 192.168.1.1-254 -oA quick_scan
 nmap --top-ports 100 -T4 192.168.1.0/24 -oA top100_scan
 ```
 
-#### 2.2 Comprehensive Scan
+#### 2.2 Complete Scan
 
 ```bash
 # All 65535 TCP ports with version and scripts
@@ -253,7 +253,7 @@ nmap --reason 192.168.1.100  # Show reason for port state
 
 ```bash
 #!/bin/bash
-# Comprehensive Nmap Assessment Script
+# Complete Nmap Assessment Script
 # Usage: ./nmap_assessment.sh <target>
 
 TARGET=$1

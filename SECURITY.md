@@ -41,7 +41,7 @@ We request that reporters give us a reasonable amount of time to address the iss
 - Systems and applications that users test using these skills
 - Social engineering attacks against maintainers or contributors
 
-## Security Best Practices for Users
+## Security Proven Patterns for Users
 
 When using the skills in this repository:
 

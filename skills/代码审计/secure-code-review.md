@@ -1,6 +1,6 @@
 # Secure Code Review Checklist Skill
 
-> Conduct structured, manual secure code reviews using a comprehensive checklist covering the most critical vulnerability classes.
+> Conduct structured, manual secure code reviews using a complete checklist covering the most critical vulnerability classes.
 
 ## When to Use
 
