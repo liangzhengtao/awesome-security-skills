@@ -26,7 +26,7 @@ n<div align="center">
 
 ## 🇬🇧 Overview
 
-**Awesome Security Skills** provides battle-tested, structured skill files that transform AI assistants into capable cybersecurity practitioners. Each skill is a self-contained playbook covering when to use, required tools, step-by-step procedures, templates, pitfalls, and legal considerations.
+**Awesome Security Skills** provides tried-and-true, structured skill files that transform AI assistants into capable cybersecurity practitioners. Each skill is a self-contained playbook covering when to use, required tools, step-by-step procedures, templates, pitfalls, and legal considerations.
 
 These skills are designed for:
 - **Security professionals** who want to augment their workflow with AI
